@@ -143,7 +143,7 @@ p {
   font-weight: 800;
   letter-spacing: -0.02em;
 }
-.brand img { width: 140px; height: auto; object-fit: contain; }
+.brand img { width: 80px; height: auto; object-fit: contain; }
 .nav .brand .logo-light { display: block; }
 .nav .brand .logo-dark { display: none; }
 .nav.scrolled .brand .logo-light { display: none; }
@@ -740,7 +740,7 @@ address {
   letter-spacing: -0.04em;
 }
 .footer-brand { display: inline-block; }
-.footer-brand img { width: 180px; height: auto; display: block; }
+.footer-brand img { width: 80px; height: auto; display: block; }
 .footer p { margin: 14px 0 34px; max-width: 300px; }
 .footer-social {
   display: grid;
