@@ -1,8 +1,8 @@
 // TODO: replace with the real Web3Forms access key from https://web3forms.com
-const WEB3FORMS_ACCESS_KEY = "YOUR_WEB3FORMS_ACCESS_KEY";
+const WEB3FORMS_ACCESS_KEY = "cf8ae417-c63e-4ea2-bb7d-cc915aad0de6";
 // TODO: replace with the real GA4 measurement ID (e.g. "G-XXXXXXXXXX")
-const GA_MEASUREMENT_ID = "G-XXXXXXXXXX";
-const WHATSAPP_NUMBER = "2349167717741";
+const GA_MEASUREMENT_ID = "G-WWP1C2YL5M";
+const WHATSAPP_NUMBER = "+2349167717741";
 
 const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
@@ -32,6 +32,7 @@ const faqs = [
   ["Do we need specialized hardware?", "Most projects run through browser, mobile, and managed cloud infrastructure. If hardware is needed, we make that explicit before build starts."],
   ["How quickly can we see results?", "Focused automations can go live in weeks. Larger SaaS builds are phased so your team gets usable value early."],
   ["Can OHR tailor solutions for our operations?", "Yes. OHR builds around your business process, compliance needs, users, and existing tools."],
+  ["We are seeking guidance regarding IT solution consulting services. What initial steps should we undertake?", "IChannel Technologies, an OHR Systems IT consulting firm, specializes in providing expert consulting services customized to meet specific demands. For additional information, please visit <a href=\"https://ichanneltech.com\" target=\"_blank\" rel=\"noopener\">ichanneltech.com</a> or contact us via email at <a href=\"mailto:hello@ichanneltech.com\">hello@ichanneltech.com</a>."],
 ];
 
 const formFields = [
@@ -71,7 +72,7 @@ document.getElementById("root").innerHTML = `
       <nav class="nav-links" aria-label="Primary navigation">
         ${["Home", "About", "Services", "Benefits", "Contact"].map((label, index) => `<span class="${index === 0 ? "hide-slash" : "slash"}">/</span><a href="#${label.toLowerCase()}" data-nav="${label.toLowerCase()}">${label}</a>`).join("")}
       </nav>
-      <a href="#contact" class="btn btn-dark nav-cta">Start a project ${arrow}</a>
+      <a href="#contact" class="btn btn-dark nav-cta">Contact Us ${arrow}</a>
     </div>
   </header>
   <main id="home">
@@ -138,13 +139,13 @@ document.getElementById("root").innerHTML = `
     <section class="section video-feature">
       <div class="shell feature-grid">
         <div class="reveal feature-media image-placeholder"><img src="assets/placeholder-ecosystem-1200x900.jpg" alt="Ecosystem feature" width="1200" height="900" loading="lazy" decoding="async" /></div>
-        <div class="reveal feature-copy"><div class="section-label">/ Watch video /</div><h2>Be the center of your business ecosystem.</h2><p>Connect people, apps, documents, analytics, and customer-facing workflows into one managed operating layer, built around how your team actually works.</p><a href="#contact" class="btn btn-dark">Start a project ${arrow}</a></div>
+        <div class="reveal feature-copy"><div class="section-label">/ Watch video /</div><h2>Be the center of your business ecosystem.</h2><p>Connect people, apps, documents, analytics, and customer-facing workflows into one managed operating layer, built around how your team actually works.</p><a href="#contact" class="btn btn-dark">Contact Us ${arrow}</a></div>
       </div>
     </section>
 
     <section class="cta-band"><div class="reveal cta-panel"><div><div class="section-label">/ Get in touch /</div><h2>Be part of a smarter operation.</h2><p>Tell us what is slowing your business down. We will help you decide what to automate, what to move to the cloud, and what to build next.</p><div class="social-pills"><a href="https://www.facebook.com/ohrsystems">Facebook</a><a href="https://x.com/ohrsystems">X (Twitter)</a><a href="https://www.linkedin.com/company/ohrsystems">LinkedIn</a></div></div></div></section>
 
-    <section class="quote-section"><div class="shell"><div class="reveal"><blockquote>"OHR helped us replace scattered spreadsheets and manual handoffs with one cloud workflow. Our team now sees the status of work without chasing anyone."</blockquote><p>Operations Lead / Growing services company</p></div></div></section>
+    <section class="quote-section"><div class="shell"><div class="reveal"><blockquote>"OHR helped us replace scattered spreadsheets and manual handoffs with one cloud workflow. Our team now sees the status of work without chasing anyone."</blockquote><p>Operations Lead / Floy Publications</p></div></div></section>
 
     <section class="section faq-section">
       <div class="shell">
@@ -179,7 +180,7 @@ document.getElementById("root").innerHTML = `
   <footer class="footer">
     <div class="shell footer-grid">
       <div><a href="#home" class="footer-brand" aria-label="OHR Systems"><img src="assets/logo-dark.svg" alt="OHR Systems" /></a><p>Software, SaaS, cloud services, and business automation for modern operations.</p><div class="footer-social"><a href="https://www.facebook.com/ohrsystems">Facebook</a><a href="https://x.com/ohrsystems">X (Twitter)</a><a href="https://www.linkedin.com/company/ohrsystems">LinkedIn</a></div></div>
-      <div class="footer-contact"><a href="mailto:hello@ohrsystems.ng">hello@ohrsystems.ng</a><div class="footer-links"><nav><h4>Main pages</h4><a href="#home">Home</a><a href="#about">About</a><a href="#services">Services</a><a href="#benefits">Benefits</a><a href="privacy.html">Privacy policy</a></nav><nav><h4>Services</h4><a href="#services">SaaS applications</a><a href="#services">Business automation</a><a href="#services">Cloud solutions</a><a href="#contact">Consulting</a></nav><nav><h4>Contact</h4><a href="tel:+2348030655234">08030655234</a><a href="tel:+234916771774">+234916771774</a><a href="#contact">Start a project</a></nav></div></div>
+      <div class="footer-contact"><a href="mailto:hello@ohrsystems.ng">hello@ohrsystems.ng</a><div class="footer-links"><nav><h4>Main pages</h4><a href="#home">Home</a><a href="#about">About</a><a href="#services">Services</a><a href="#benefits">Benefits</a><a href="privacy.html">Privacy policy</a></nav><nav><h4>Services</h4><a href="#services">SaaS applications</a><a href="#services">Business automation</a><a href="#services">Cloud solutions</a><a href="#contact">Consulting</a></nav><nav><h4>Contact</h4><a href="tel:+2348030655234">08030655234</a><a href="tel:+234916771774">+234916771774</a><a href="#contact">Contact Us</a></nav></div></div>
     </div>
     <div class="shell footer-bottom"><span>Copyright © ${new Date().getFullYear()} OHR Systems</span><a href="privacy.html">Privacy policy</a><span>Empowering business / Cultivating trust</span></div>
   </footer>
