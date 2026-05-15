@@ -90,7 +90,7 @@ document.getElementById("root").innerHTML = `
             <div><span>Cloud support</span><strong data-count="24" data-suffix="/7">0</strong></div>
           </div>
         </div>
-        <div class="hero-media" aria-label="OHR Systems cloud operations video"><video ${reducedMotion ? "" : "autoplay"} muted loop playsinline preload="metadata" poster="uploads/logo-1778514623161.png">${videoSources}</video></div>
+        <div class="hero-media" aria-label="OHR Systems cloud operations video"><video ${reducedMotion ? "" : "autoplay"} muted loop playsinline preload="metadata" poster="assets/hero-fallback.jpg">${videoSources}</video></div>
       </div>
     </section>
 
@@ -405,6 +405,35 @@ window.addEventListener("scroll", () => {
 }, { passive: true });
 renderService(0);
 setActiveNav();
+
+// Hero video fallback — hide video on error so CSS background-image shows through
+(function () {
+  const vid = document.querySelector(".hero-media video");
+  if (!vid) return;
+
+  function fallback() {
+    vid.classList.add("video-failed");
+  }
+
+  // If the video can't load any source
+  vid.addEventListener("error", fallback);
+  // Also listen on each <source> for network failures
+  vid.querySelectorAll("source").forEach((src) => {
+    src.addEventListener("error", () => {
+      // Only fallback if ALL sources failed
+      const sources = vid.querySelectorAll("source");
+      const allFailed = [...sources].every((s) => s.error || !vid.networkState || vid.networkState === 3);
+      if (allFailed) fallback();
+    });
+  });
+
+  // Timeout: if video hasn't started playing within 6s, show fallback image
+  let playStarted = false;
+  vid.addEventListener("playing", () => { playStarted = true; });
+  setTimeout(() => {
+    if (!playStarted && vid.readyState < 3) fallback();
+  }, 6000);
+})();
 
 // Consent + GA4
 const CONSENT_KEY = "ohr_consent";
