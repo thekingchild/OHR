@@ -192,6 +192,7 @@ p {
   position: absolute;
   inset: 0;
   z-index: -2;
+  background: #111 url('assets/hero-fallback.jpg') center / cover no-repeat;
 }
 .hero-media video {
   width: 100%;
@@ -199,6 +200,7 @@ p {
   object-fit: cover;
   filter: saturate(.9) contrast(1.05);
 }
+.hero-media video.video-failed { display: none; }
 .hero-shell::after {
   content: "";
   position: absolute;
