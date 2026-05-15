@@ -139,7 +139,7 @@ document.getElementById("root").innerHTML = `
     <section class="section video-feature">
       <div class="shell feature-grid">
         <div class="reveal feature-media image-placeholder"><img src="assets/placeholder-ecosystem-1200x900.jpg" alt="Ecosystem feature" width="1200" height="900" loading="lazy" decoding="async" /></div>
-        <div class="reveal feature-copy"><div class="section-label">/ Watch video /</div><h2>Be the center of your business ecosystem.</h2><p>Connect people, apps, documents, analytics, and customer-facing workflows into one managed operating layer, built around how your team actually works.</p><a href="#contact" class="btn btn-dark">Contact Us ${arrow}</a></div>
+        <div class="reveal feature-copy"><div class="section-label">/ How it works /</div><h2>Be the center of your business ecosystem.</h2><p>Connect people, apps, documents, analytics, and customer-facing workflows into one managed operating layer, built around how your team actually works.</p><a href="#contact" class="btn btn-dark">Contact Us ${arrow}</a></div>
       </div>
     </section>
 
@@ -156,7 +156,7 @@ document.getElementById("root").innerHTML = `
 
     <section id="contact" class="section contact-section">
       <div class="shell contact-grid">
-        <div class="reveal contact-copy"><div class="section-label">/ Contact us /</div><h2>Connect with us.</h2><p>For inquiry, support, or collaboration, reach OHR Systems in Ibadan or send a project note. We work with teams that want reliable SaaS, business automation, and cloud services.</p><div class="contact-person"><div class="avatar">OH</div><div><strong>OHR Systems</strong><a href="mailto:hello@ohrsystems.ng">hello@ohrsystems.ng</a></div></div><address>Queen Elizabeth Road, Mokola, Ibadan, Oyo State, Nigeria<br /><a href="tel:+2348030655234">08030655234</a> / <a href="tel:+234916771774">+234916771774</a></address></div>
+        <div class="reveal contact-copy"><div class="section-label">/ Contact us /</div><h2>Connect with us.</h2><p>For inquiry, support, or collaboration, reach OHR Systems in Ibadan or send a project note. We work with teams that want reliable SaaS, business automation, and cloud services.</p><div class="contact-person"><div class="avatar">OH</div><div><strong>OHR Systems</strong><a href="mailto:hello@ohrsystems.ng">hello@ohrsystems.ng</a></div></div><address>Queen Elizabeth Road, Mokola, Ibadan, Oyo State, Nigeria<br /><a href="https://wa.me/2349167717741" target="_blank" rel="noopener">+234916771774</a></address></div>
         <div class="reveal">
           <form class="contact-form" novalidate>
             <input type="hidden" name="access_key" value="${WEB3FORMS_ACCESS_KEY}" />
@@ -170,7 +170,7 @@ document.getElementById("root").innerHTML = `
             </div>
             ${formFields.map(field).join("")}
             <div class="form-status" role="alert" aria-live="assertive"></div>
-            <button type="submit" class="btn btn-dark">Request a demo ${arrow}</button>
+            <button type="submit" class="btn btn-dark">Submit ${arrow}</button>
           </form>
         </div>
       </div>
@@ -180,7 +180,7 @@ document.getElementById("root").innerHTML = `
   <footer class="footer">
     <div class="shell footer-grid">
       <div><a href="#home" class="footer-brand" aria-label="OHR Systems"><img src="assets/logo-dark.svg" alt="OHR Systems" /></a><p>Software, SaaS, cloud services, and business automation for modern operations.</p><div class="footer-social"><a href="https://www.facebook.com/ohrsystems">Facebook</a><a href="https://x.com/ohrsystems">X (Twitter)</a><a href="https://www.linkedin.com/company/ohrsystems">LinkedIn</a></div></div>
-      <div class="footer-contact"><a href="mailto:hello@ohrsystems.ng">hello@ohrsystems.ng</a><div class="footer-links"><nav><h4>Main pages</h4><a href="#home">Home</a><a href="#about">About</a><a href="#services">Services</a><a href="#benefits">Benefits</a><a href="privacy.html">Privacy policy</a></nav><nav><h4>Services</h4><a href="#services">SaaS applications</a><a href="#services">Business automation</a><a href="#services">Cloud solutions</a><a href="#contact">Consulting</a></nav><nav><h4>Contact</h4><a href="tel:+2348030655234">08030655234</a><a href="tel:+234916771774">+234916771774</a><a href="#contact">Contact Us</a></nav></div></div>
+      <div class="footer-contact"><a href="mailto:hello@ohrsystems.ng">hello@ohrsystems.ng</a><div class="footer-links"><nav><h4>Main pages</h4><a href="#home">Home</a><a href="#about">About</a><a href="#services">Services</a><a href="#benefits">Benefits</a><a href="privacy.html">Privacy policy</a></nav><nav><h4>Services</h4><a href="#services">SaaS applications</a><a href="#services">Business automation</a><a href="#services">Cloud solutions</a><a href="#contact">Consulting</a></nav><nav><h4>Contact</h4><a href="https://wa.me/2349167717741" target="_blank" rel="noopener">+234916771774</a><a href="#contact">Contact Us</a></nav></div></div>
     </div>
     <div class="shell footer-bottom"><span>Copyright © ${new Date().getFullYear()} OHR Systems</span><a href="privacy.html">Privacy policy</a><span>Empowering business / Cultivating trust</span></div>
   </footer>

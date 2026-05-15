@@ -4,8 +4,9 @@
     {
       "name": "serve (static, no install)",
       "runtimeExecutable": "npx",
-      "runtimeArgs": ["--yes", "serve", "-l", "3000", "."],
-      "port": 3000
+      "runtimeArgs": ["--yes", "serve", "."],
+      "port": 3000,
+      "autoPort": true
     },
     {
       "name": "vercel dev (honours vercel.json)",
