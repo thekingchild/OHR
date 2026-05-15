@@ -10,16 +10,19 @@ const services = [
   {
     title: "SaaS application development",
     desc: "Ready-to-use applications that run on secure cloud servers, accessed from browser or mobile app without installation, patching, or infrastructure overhead.",
+    detail: "From concept to launch, we build SaaS products that connect your users, data, and recurring revenue model into one secure, easy-to-maintain platform.",
     points: ["Custom business apps", "Subscription products", "Self-service portals"],
   },
   {
     title: "Business automation",
     desc: "We digitize repetitive, time-consuming, and error-prone workflows so approvals, handoffs, reporting, and daily operations keep moving.",
+    detail: "We map operations, remove friction, and automate the steps that waste time so your team can focus on higher-value work.",
     points: ["Workflow design", "Process integrations", "Operational dashboards"],
   },
   {
     title: "Cloud solutions",
     desc: "Cloud-based services for email, storage, collaboration, analytics, deployment, and managed infrastructure that scale with what your business actually uses.",
+    detail: "We design cloud environments that let your business adapt quickly, stay secure, and make data available to the people who need it most.",
     points: ["Cloud migration", "Managed productivity suites", "Secure deployments"],
   },
 ];
@@ -112,7 +115,7 @@ document.getElementById("root").innerHTML = `
       <div class="shell">
         <div class="reveal center-head"><div class="section-label">/ Solutions /</div><h2>Our services.</h2></div>
         <div class="reveal service-stage">
-          <div class="service-copy" id="service-panel" role="tabpanel" aria-labelledby="service-tab-0"><h3></h3><p></p><div class="service-lines"></div></div>
+          <div class="service-copy" id="service-panel" role="tabpanel" aria-labelledby="service-tab-0"><h3></h3><p></p><p class="service-detail"></p><div class="service-lines"></div></div>
           <div class="service-visual image-placeholder">
             <img src="assets/placeholder-services-dashboard-1200x900.jpg" alt="Services dashboard" width="1200" height="900" loading="lazy" decoding="async" />
           </div>
@@ -231,6 +234,7 @@ function renderService(index) {
   const service = services[index];
   document.querySelector(".service-copy h3").textContent = service.title;
   document.querySelector(".service-copy p").textContent = service.desc;
+  document.querySelector(".service-copy .service-detail").textContent = service.detail;
   document.querySelector(".service-lines").innerHTML = service.points.map((point) => `<button type="button" tabindex="-1">${point}</button>`).join("");
   document.querySelector("#service-panel").setAttribute("aria-labelledby", `service-tab-${index}`);
   serviceButtons.forEach((button, i) => {
