@@ -156,7 +156,7 @@ document.getElementById("root").innerHTML = `
 
     <section id="contact" class="section contact-section">
       <div class="shell contact-grid">
-        <div class="reveal contact-copy"><div class="section-label">/ Contact us /</div><h2>Connect with us.</h2><p>For inquiry, support, or collaboration, reach OHR Systems in Ibadan or send a project note. We work with teams that want reliable SaaS, business automation, and cloud services.</p><div class="contact-person"><div class="avatar">OH</div><div><strong>OHR Systems</strong><a href="mailto:hello@ohrsystems.ng">hello@ohrsystems.ng</a></div></div><address>Queen Elizabeth Road, Mokola, Ibadan, Oyo State, Nigeria<br /><a href="https://wa.me/2349167717174" target="_blank" rel="noopener">+2349167717174</a></address></div>
+        <div class="reveal contact-copy"><div class="section-label">/ Contact us /</div><h2>Connect with us.</h2><p>For inquiry, support, or collaboration, reach OHR Systems or send a project note. We work with teams that want reliable SaaS, business automation, and cloud services.</p><div class="contact-person"><div class="avatar">OH</div><div><strong>OHR Systems</strong><a href="mailto:hello@ohrsystems.ng">hello@ohrsystems.ng</a></div></div><address>Queen Elizabeth Road, Mokola, Ibadan, Nigeria<br /><a href="https://wa.me/2349167717174" target="_blank" rel="noopener">+2349167717174</a></address></div>
         <div class="reveal">
           <form class="contact-form" novalidate>
             <input type="hidden" name="access_key" value="${WEB3FORMS_ACCESS_KEY}" />
