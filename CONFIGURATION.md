@@ -90,7 +90,7 @@ file for the current value and replace every match:
 | `hello@ohrsystems.ng` | Contact section, footer, JSON-LD |
 | `+2349167717174` | Contact section, footer, JSON-LD |
 | `wa.me/2349167717174` (WhatsApp links) | Contact section, footer, floating WhatsApp button. WhatsApp links must use the number **without** `+` or spaces. |
-| `Queen Elizabeth Road, Mokola, Ibadan, Oyo State, Nigeria` | Contact `<address>`, JSON-LD |
+| `Queen Elizabeth Road, Mokola, Ibadan, Nigeria` | Contact `<address>`, JSON-LD |
 
 ---
 
