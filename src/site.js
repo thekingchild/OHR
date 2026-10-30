@@ -6,7 +6,7 @@ const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matc
 
 const nav = document.querySelector(".nav");
 const navItems = [...document.querySelectorAll("[data-nav]")];
-const ids = ["home", "about", "services", "benefits", "contact"];
+const ids = ["home", "about", "services", "benefits", "faq", "contact"];
 
 // Mobile menu (shown below 980px wide)
 const menuToggle = document.querySelector(".nav-toggle");
