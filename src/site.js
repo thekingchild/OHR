@@ -80,8 +80,11 @@ function countUp(el) {
   const target = Number(el.dataset.count);
   const decimals = Number(el.dataset.decimals || 0);
   const suffix = el.dataset.suffix || "";
+  const prefix = el.dataset.prefix || "";
+  const comma = el.dataset.format === "comma";
+  const format = (value) => prefix + (comma ? Math.round(value).toLocaleString("en-US") : value.toFixed(decimals)) + suffix;
   if (reducedMotion) {
-    el.textContent = target.toFixed(decimals) + suffix;
+    el.textContent = format(target);
     return;
   }
   const start = performance.now();
@@ -89,7 +92,7 @@ function countUp(el) {
   function tick(now) {
     const progress = Math.min(1, (now - start) / duration);
     const eased = 1 - Math.pow(1 - progress, 3);
-    el.textContent = (target * eased).toFixed(decimals) + suffix;
+    el.textContent = format(target * eased);
     if (progress < 1) requestAnimationFrame(tick);
   }
   requestAnimationFrame(tick);
@@ -105,7 +108,21 @@ const revealObserver = new IntersectionObserver((entries) => {
 }, { threshold: 0.12 });
 
 document.querySelectorAll(".reveal").forEach((el) => revealObserver.observe(el));
-document.querySelectorAll("[data-count]").forEach(countUp);
+
+// Animated benefit graphics play only while on screen. The first time each
+// one appears, its numbers count up.
+const motionObserver = new IntersectionObserver((entries) => {
+  entries.forEach((entry) => {
+    const el = entry.target;
+    el.classList.toggle("playing", entry.isIntersecting);
+    if (entry.isIntersecting && !el.dataset.seen) {
+      el.dataset.seen = "1";
+      el.querySelectorAll("[data-count]").forEach(countUp);
+    }
+  });
+}, { threshold: 0.35 });
+document.querySelectorAll(".benefit-motion").forEach((el) => motionObserver.observe(el));
+document.querySelectorAll(".hero-stats [data-count]").forEach(countUp);
 
 serviceButtons.forEach((button, index) => {
   button.addEventListener("click", () => renderService(index));

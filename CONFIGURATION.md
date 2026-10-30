@@ -105,6 +105,12 @@ change and edit it in place.
   `.service-index`. To add a service, copy a panel and a tab button and bump the
   numbers in their `id`, `aria-controls`, `aria-labelledby` and `data-service`.
 - **FAQs** — the `<article>` items inside `.faq-list`.
+- **Benefit graphics** — the three animated drawings in `#benefits` are inline
+  SVGs inside `<div class="benefit-art benefit-motion">`. Their animations are
+  the `bm-*` classes in [`styles.css`](styles.css) (`--d` sets each piece's
+  start delay). Numbers in the dashboard graphic count up from their
+  `data-count` value. Visitors with reduced motion turned on see the finished
+  drawing with no animation.
 
 [`src/site.js`](src/site.js) only adds behaviour (menu, tabs, FAQ toggles, form
 sending, animations). It doesn't contain page copy.
