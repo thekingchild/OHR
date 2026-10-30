@@ -6,27 +6,12 @@ just text changes to one of the files at the repo root.
 
 ---
 
-## 1. Secrets / IDs you must replace before going live
+## 1. Form key and analytics ID
 
-These are the only things that absolutely have to be replaced before deploying.
-Both sit at the top of [`src/site.js`](src/site.js):
-
-```js
-// TODO: replace with the real Web3Forms access key from https://web3forms.com
-const WEB3FORMS_ACCESS_KEY = "YOUR_WEB3FORMS_ACCESS_KEY";
-// TODO: replace with the real GA4 measurement ID (e.g. "G-XXXXXXXXXX")
-const GA_MEASUREMENT_ID = "G-XXXXXXXXXX";
-const WHATSAPP_NUMBER = "2349167717741";
-```
-
-| Constant | What it is | Where to get it |
+| Setting | Where it lives | What it is |
 |---|---|---|
-| `WEB3FORMS_ACCESS_KEY` | Access key the contact form posts to. Without this, the form will appear to submit but no email is delivered. | Create a free account at [web3forms.com](https://web3forms.com) → "Create New Form" → copy the access key. Point it at `hello@ohrsystems.ng`. |
-| `GA_MEASUREMENT_ID` | Google Analytics 4 measurement ID. Leave it as `G-XXXXXXXXXX` to disable analytics entirely (the consent banner will still show). | analytics.google.com → Admin → Data Streams → Web → copy the "Measurement ID" (starts with `G-`). |
-| `WHATSAPP_NUMBER` | International-format number (no `+`, no spaces) used by the floating WhatsApp button. | The phone number you want messages routed to. Currently `+234 916 771 7741`. |
-
-> **Tip:** these constants live in plain JS — there is no `.env` step. Edit the
-> file, save, deploy.
+| Web3Forms access key | [`index.html`](index.html), the hidden `access_key` input inside the contact `<form>` | Key the contact form posts to. Without it, no email is delivered. Get one at [web3forms.com](https://web3forms.com) and point it at `hello@ohrsystems.ng`. The key is public by design: it only allows sending messages to your inbox. |
+| `GA_MEASUREMENT_ID` | Top of [`src/site.js`](src/site.js) | Google Analytics 4 measurement ID (starts with `G-`). Set it to `"G-XXXXXXXXXX"` to turn analytics off. |
 
 ---
 
@@ -67,19 +52,16 @@ and [`404.html`](404.html):
 When someone shares the site on WhatsApp, Slack, LinkedIn, X, Facebook,
 iMessage, etc., this is the image they see.
 
-**File:** [`assets/og-image.jpg`](assets/og-image.jpg)
-**Recommended size:** 1200 × 630 pixels (the Facebook / OG standard)
-**Format:** JPG or PNG (under ~1 MB for fast preview loads)
+**File:** [`assets/share-image.jpg`](assets/share-image.jpg)
+**Size:** 1200 × 630 pixels, under ~300 KB
 
-**To replace:** save your new image as `assets/og-image.jpg`, overwriting the
-existing file. That is the only change you need — every page on the site
-already references that exact path.
+**To replace:** save the new image under a **new filename** (for example
+`assets/share-image-2.jpg`) and update the `og:image` and `twitter:image` tags in
+[`index.html`](index.html) and the `og:image` tag in [`privacy.html`](privacy.html).
+A new name matters because `vercel.json` tells browsers and CDNs to cache
+everything in `assets/` for a year, and social sites cache previews by URL.
 
-If you'd rather use a different filename, update these three lines in
-[`index.html`](index.html) (the `og:image` and `twitter:image` meta tags) and
-the one matching line in [`privacy.html`](privacy.html).
-
-> **After replacing:** clear Facebook/LinkedIn caches so they re-scrape.
+> **After replacing:** ask Facebook/LinkedIn to re-scrape.
 > Facebook debugger: [developers.facebook.com/tools/debug](https://developers.facebook.com/tools/debug/)
 > LinkedIn inspector: [linkedin.com/post-inspector](https://www.linkedin.com/post-inspector/)
 
@@ -100,33 +82,32 @@ domain, search-and-replace `https://ohrsystems.ng` across these files:
 
 ## 5. Contact details (phone, email, address)
 
-All contact info is in [`src/site.js`](src/site.js). Search the file for the
-current values and replace:
+All contact info is written directly in [`index.html`](index.html). Search the
+file for the current value and replace every match:
 
 | Value | Found in |
 |---|---|
 | `hello@ohrsystems.ng` | Contact section, footer, JSON-LD |
-| `+2348030655234` / `08030655234` | Contact section, footer, JSON-LD |
-| `+234916771774` | Contact section, footer |
-| `2349167717741` (WhatsApp) | `WHATSAPP_NUMBER` constant at top |
-| `Queen Elizabeth Road, Mokola, Ibadan, Oyo State, Nigeria` | Contact `<address>` |
-
-Also update the postal-address fields in the JSON-LD block in
-[`index.html`](index.html) (look for `"@type": "LocalBusiness"`).
+| `+2349167717174` | Contact section, footer, JSON-LD |
+| `wa.me/2349167717174` (WhatsApp links) | Contact section, footer, floating WhatsApp button. WhatsApp links must use the number **without** `+` or spaces. |
+| `Queen Elizabeth Road, Mokola, Ibadan, Oyo State, Nigeria` | Contact `<address>`, JSON-LD |
 
 ---
 
 ## 6. Copy (headlines, services, FAQs)
 
-All content the user reads on the home page lives in [`src/site.js`](src/site.js):
+All text on the home page is plain HTML in [`index.html`](index.html), so
+search engines and link previews can read it. Search for the text you want to
+change and edit it in place.
 
-- **Services** — the `services` array near the top. Three entries today; add or
-  remove items here and the tabbed selector adjusts automatically.
-- **FAQs** — the `faqs` array; each entry is `[question, answer]`.
-- **Hero, About, Benefits, CTA band, Quote, Contact copy** — these are inline
-  in the big template literal that starts with
-  `` document.getElementById("root").innerHTML = `... `` ``. Search for the
-  text you want to change and edit in place.
+- **Services** — three `<div class="service-copy">` panels inside
+  `#services`. Each panel has a matching numbered tab button in
+  `.service-index`. To add a service, copy a panel and a tab button and bump the
+  numbers in their `id`, `aria-controls`, `aria-labelledby` and `data-service`.
+- **FAQs** — the `<article>` items inside `.faq-list`.
+
+[`src/site.js`](src/site.js) only adds behaviour (menu, tabs, FAQ toggles, form
+sending, animations). It doesn't contain page copy.
 
 ---
 
@@ -136,10 +117,10 @@ The contact form has four layered defences. You usually don't need to touch
 any of these, but here's where they live so you can tune them:
 
 1. **Web3Forms `botcheck` honeypot** — invisible checkbox; if a bot ticks it,
-   Web3Forms drops the submission server-side. ([src/site.js](src/site.js), name `botcheck`)
+   Web3Forms drops the submission server-side. ([index.html](index.html), name `botcheck`)
 2. **Custom honeypots** — two invisible fields named `website` and
    `email_confirm`. Real users never see them; bots auto-fill anything
-   labelled "website" or "email". ([src/site.js](src/site.js))
+   labelled "website" or "email". ([index.html](index.html), inside `.spam-trap`)
 3. **Time-trap** — submissions in less than 3 seconds after page render are
    silently rejected. Tune via the `MIN_FILL_SECONDS` constant.
 4. **Rate limit** — the same browser can't submit twice within 60 seconds. Tune
@@ -152,7 +133,7 @@ showing an error, so spam bots don't retry with adjusted strategies.
 
 1. Get a site key from [dash.cloudflare.com](https://dash.cloudflare.com) →
    Turnstile.
-2. Add to the form (inside the `<form>` tag in [src/site.js](src/site.js)):
+2. Add to the form (inside the `<form>` tag in [index.html](index.html)):
    ```html
    <div class="cf-turnstile" data-sitekey="YOUR_SITE_KEY"></div>
    ```
@@ -200,11 +181,12 @@ with your new URL to verify the OG image + JSON-LD are picked up.
 
 | File | What it controls |
 |---|---|
-| [`src/site.js`](src/site.js) | All page copy, services list, FAQs, form behaviour, spam settings, contact details, secrets |
+| [`index.html`](index.html) | All page copy, services, FAQs, contact details, form key, SEO meta, OG tags, JSON-LD |
+| [`src/site.js`](src/site.js) | Behaviour only: menu, tabs, form sending, spam settings, analytics ID, hero video |
 | [`styles.css`](styles.css) | All visual styling (colours, sizing, layout) |
-| [`index.html`](index.html) | SEO meta, OG tags, JSON-LD, GA4 + Web3Forms preconnects |
 | [`privacy.html`](privacy.html) | Privacy policy body copy |
-| [`assets/og-image.jpg`](assets/og-image.jpg) | Social-share preview image |
+| [`assets/share-image.jpg`](assets/share-image.jpg) | Social-share preview image |
+| [`assets/hero.mp4`](assets/hero.mp4) / [`assets/hero-mobile.mp4`](assets/hero-mobile.mp4) | Hero video (wide, and a portrait cut for phones). Keep each under ~1 MB. |
 | [`assets/logo-light.svg`](assets/logo-light.svg) / [`assets/logo-dark.svg`](assets/logo-dark.svg) | Brand mark |
 | [`vercel.json`](vercel.json) | HTTP headers + caching for the deployed site |
 

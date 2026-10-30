@@ -15,22 +15,28 @@
   <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon-32x32.png" />
   <link rel="icon" type="image/png" sizes="16x16" href="assets/favicon-16x16.png" />
   <link rel="apple-touch-icon" sizes="180x180" href="assets/apple-touch-icon.png" />
+  <link rel="manifest" href="assets/site.webmanifest" />
 
   <meta property="og:type" content="website" />
   <meta property="og:site_name" content="OHR Systems" />
   <meta property="og:title" content="OHR Systems - Software, SaaS, Cloud Services and Solutions" />
   <meta property="og:description" content="Connected cloud workflows, custom SaaS, and business automation built around how your team actually works." />
   <meta property="og:url" content="https://ohrsystems.ng/" />
-  <meta property="og:image" content="https://ohrsystems.ng/assets/og-image.jpg" />
+  <meta property="og:image" content="https://ohrsystems.ng/assets/share-image.jpg" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta property="og:image:alt" content="OHR Systems: Build smarter systems that move your business forward." />
   <meta property="og:locale" content="en_NG" />
 
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:site" content="@ohrsystems" />
   <meta name="twitter:title" content="OHR Systems - Software, SaaS, Cloud Services and Solutions" />
   <meta name="twitter:description" content="Connected cloud workflows, custom SaaS, and business automation built around how your team actually works." />
-  <meta name="twitter:image" content="https://ohrsystems.ng/assets/og-image.jpg" />
+  <meta name="twitter:image" content="https://ohrsystems.ng/assets/share-image.jpg" />
+  <meta name="twitter:image:alt" content="OHR Systems: Build smarter systems that move your business forward." />
 
   <link rel="preconnect" href="https://api.web3forms.com" />
+  <link rel="preload" as="image" href="assets/hero-fallback.jpg" />
 
   <script type="application/ld+json">
   {
@@ -79,11 +85,190 @@
   }
   </script>
 
+  <script>document.documentElement.classList.add("js");</script>
   <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
   <a class="skip-link" href="#home">Skip to content</a>
-  <div id="root"></div>
+
+  <header class="nav">
+    <div class="shell nav-inner">
+      <a href="#home" class="brand" aria-label="OHR Systems home">
+        <img class="logo-light" src="assets/logo-light.svg" alt="OHR Systems" width="80" height="40" />
+        <img class="logo-dark" src="assets/logo-dark.svg" alt="" aria-hidden="true" width="80" height="40" />
+      </a>
+      <nav class="nav-links" aria-label="Primary navigation">
+        <span class="hide-slash">/</span><a href="#home" data-nav="home">Home</a>
+        <span class="slash">/</span><a href="#about" data-nav="about">About</a>
+        <span class="slash">/</span><a href="#services" data-nav="services">Services</a>
+        <span class="slash">/</span><a href="#benefits" data-nav="benefits">Benefits</a>
+        <span class="slash">/</span><a href="#contact" data-nav="contact">Contact</a>
+      </nav>
+      <div class="nav-actions">
+        <a href="#contact" class="btn btn-dark nav-cta">Contact Us <svg width="14" height="14" viewBox="0 0 14 14" fill="none" class="arrow" aria-hidden="true"><path d="M3 11L11 3M11 3H4.5M11 3V9.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+        <button type="button" class="nav-toggle" aria-expanded="false" aria-controls="mobile-menu" aria-label="Open menu"><span></span><span></span></button>
+      </div>
+    </div>
+    <nav class="mobile-menu" id="mobile-menu" aria-label="Mobile navigation" hidden>
+      <div class="shell">
+        <a href="#home" data-nav="home">Home</a>
+        <a href="#about" data-nav="about">About</a>
+        <a href="#services" data-nav="services">Services</a>
+        <a href="#benefits" data-nav="benefits">Benefits</a>
+        <a href="#contact" data-nav="contact">Contact</a>
+      </div>
+    </nav>
+  </header>
+
+  <main id="home">
+    <section class="hero">
+      <div class="shell hero-shell">
+        <div class="hero-inner">
+          <div class="hero-copy">
+            <h1>Build smarter systems that move your business forward.</h1>
+            <p>OHR Systems turns everyday operations into connected cloud workflows, custom SaaS products, and automation your team can trust.</p>
+            <div class="hero-actions">
+              <a href="#services" class="btn btn-light">Explore services <svg width="14" height="14" viewBox="0 0 14 14" fill="none" class="arrow" aria-hidden="true"><path d="M3 11L11 3M11 3H4.5M11 3V9.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+              <a href="#contact" class="btn btn-glass">Contact us <svg width="14" height="14" viewBox="0 0 14 14" fill="none" class="arrow" aria-hidden="true"><path d="M3 11L11 3M11 3H4.5M11 3V9.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+            </div>
+          </div>
+          <div class="hero-stats" aria-label="OHR Systems proof points">
+            <div><span>Businesses supported</span><strong data-count="120" data-suffix="+">120+</strong></div>
+            <div><span>Managed uptime</span><strong data-count="99.9" data-decimals="1" data-suffix="%">99.9%</strong></div>
+            <div><span>Workflows automated</span><strong data-count="280" data-suffix="+">280+</strong></div>
+            <div><span>Cloud support</span><strong data-count="24" data-suffix="/7">24/7</strong></div>
+          </div>
+        </div>
+        <!-- site.js picks the right file for the screen size and skips the video for reduced-motion or data-saver users. -->
+        <div class="hero-media"><video muted loop playsinline preload="none" poster="assets/hero-fallback.jpg" aria-hidden="true" data-src="assets/hero.mp4" data-src-mobile="assets/hero-mobile.mp4"></video></div>
+      </div>
+    </section>
+
+    <section id="about" class="section section-split">
+      <div class="shell split-grid">
+        <div class="reveal image-placeholder about-image">
+          <img src="assets/placeholder-about-cloud-coordination-960x600.jpg" alt="Three colleagues standing together in a bright office, one holding a tablet" width="960" height="600" loading="lazy" decoding="async" />
+        </div>
+        <div class="reveal split-copy">
+          <div class="section-label">/ What makes OHR different /</div>
+          <h2>Bridging business operations and cloud execution.</h2>
+          <p>OHR Systems helps businesses transition from traditional operations to digital models. We implement and manage SaaS solutions, cloud services, and automation workflows so your teams can focus on core operations without worrying about technical issues.</p>
+          <a href="#services" class="btn btn-dark">Explore services <svg width="14" height="14" viewBox="0 0 14 14" fill="none" class="arrow" aria-hidden="true"><path d="M3 11L11 3M11 3H4.5M11 3V9.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+        </div>
+      </div>
+    </section>
+
+    <section id="services" class="section soft-section">
+      <div class="shell">
+        <div class="reveal center-head"><div class="section-label">/ Solutions /</div><h2>Our services.</h2></div>
+        <div class="reveal service-stage">
+          <div class="service-copy" id="service-panel-0" role="tabpanel" aria-labelledby="service-tab-0">
+            <h3>SaaS application development</h3>
+            <p>Ready-to-use applications that run on secure cloud servers, accessed from browser or mobile app without installation, patching, or infrastructure overhead.</p>
+            <p class="service-detail">From concept to launch, we build SaaS products that connect your users, data, and recurring revenue model into one secure, easy-to-maintain platform.</p>
+            <ul class="service-lines"><li>Custom business apps</li><li>Subscription products</li><li>Self-service portals</li></ul>
+          </div>
+          <div class="service-copy" id="service-panel-1" role="tabpanel" aria-labelledby="service-tab-1" hidden>
+            <h3>Business automation</h3>
+            <p>We digitize repetitive, time-consuming, and error-prone workflows so approvals, handoffs, reporting, and daily operations keep moving.</p>
+            <p class="service-detail">We map operations, remove friction, and automate the steps that waste time so your team can focus on higher-value work.</p>
+            <ul class="service-lines"><li>Workflow design</li><li>Process integrations</li><li>Operational dashboards</li></ul>
+          </div>
+          <div class="service-copy" id="service-panel-2" role="tabpanel" aria-labelledby="service-tab-2" hidden>
+            <h3>Cloud solutions</h3>
+            <p>Cloud-based services for email, storage, collaboration, analytics, deployment, and managed infrastructure that scale with what your business actually uses.</p>
+            <p class="service-detail">We design cloud environments that let your business adapt quickly, stay secure, and make data available to the people who need it most.</p>
+            <ul class="service-lines"><li>Cloud migration</li><li>Managed productivity suites</li><li>Secure deployments</li></ul>
+          </div>
+          <div class="service-visual image-placeholder">
+            <img src="assets/placeholder-services-dashboard-1200x900.jpg" alt="Three young professionals leaning over a laptop, reviewing work together" width="1200" height="900" loading="lazy" decoding="async" />
+          </div>
+          <div class="service-index" role="tablist" aria-label="Service selector">
+            <button type="button" role="tab" id="service-tab-0" aria-controls="service-panel-0" aria-selected="true" tabindex="0" class="active" data-service="0">01.</button>
+            <button type="button" role="tab" id="service-tab-1" aria-controls="service-panel-1" aria-selected="false" tabindex="-1" data-service="1">02.</button>
+            <button type="button" role="tab" id="service-tab-2" aria-controls="service-panel-2" aria-selected="false" tabindex="-1" data-service="2">03.</button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="benefits" class="section">
+      <div class="shell">
+        <div class="reveal section-topline"><div><div class="section-label">/ OHR benefits /</div><h2>Our benefits.</h2></div><a href="#contact" class="btn btn-outline">Work with us</a></div>
+        <div class="reveal benefit-grid">
+          <article class="benefit-card"><div class="benefit-art image-placeholder"><img src="assets/placeholder-benefit-scalable-900x560.jpg" alt="" width="900" height="560" loading="lazy" decoding="async" /></div><span>01/</span><h3>Scalable architecture</h3><p>Start lean, then add users, capacity, modules, and integrations as your business grows.</p></article>
+          <article class="benefit-card"><div class="benefit-art image-placeholder"><img src="assets/placeholder-benefit-insights-900x560.jpg" alt="" width="900" height="560" loading="lazy" decoding="async" /></div><span>02/</span><h3>Real-time insight</h3><p>Replace disconnected tools with dashboards that make operational status visible.</p></article>
+          <article class="benefit-card"><div class="benefit-art image-placeholder"><img src="assets/placeholder-benefit-support-900x560.jpg" alt="" width="900" height="560" loading="lazy" decoding="async" /></div><span>03/</span><h3>Trusted support</h3><p>Implementation, training, monitoring, updates, and ongoing support after launch.</p></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section video-feature">
+      <div class="shell feature-grid">
+        <div class="reveal feature-media image-placeholder"><img src="assets/placeholder-ecosystem-1200x900.jpg" alt="A team meeting around a table, discussing a plan on a tablet" width="1200" height="900" loading="lazy" decoding="async" /></div>
+        <div class="reveal feature-copy"><div class="section-label">/ How it works /</div><h2>Be the center of your business ecosystem.</h2><p>Connect people, apps, documents, analytics, and customer-facing workflows into one managed operating layer, built around how your team actually works.</p><a href="#contact" class="btn btn-dark">Contact Us <svg width="14" height="14" viewBox="0 0 14 14" fill="none" class="arrow" aria-hidden="true"><path d="M3 11L11 3M11 3H4.5M11 3V9.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></a></div>
+      </div>
+    </section>
+
+    <section class="cta-band"><div class="reveal cta-panel"><div><div class="section-label">/ Get in touch /</div><h2>Be part of a smarter operation.</h2><p>Tell us what is slowing your business down. We will help you decide what to automate, what to move to the cloud, and what to build next.</p><div class="social-pills"><a href="https://www.facebook.com/ohrsystems">Facebook</a><a href="https://x.com/ohrsystems">X (Twitter)</a><a href="https://www.linkedin.com/company/ohrsystems">LinkedIn</a></div></div></div></section>
+
+    <section class="quote-section"><div class="shell"><div class="reveal"><blockquote>"OHR helped us replace scattered spreadsheets and manual handoffs with one cloud workflow. Our team now sees the status of work without chasing anyone."</blockquote><p>Operations Lead / Floy Publications</p></div></div></section>
+
+    <section class="section faq-section">
+      <div class="shell">
+        <div class="reveal center-head"><div class="section-label">/ FAQs /</div><h2>Frequently asked questions.</h2></div>
+        <div class="reveal faq-list">
+          <article class="open"><button type="button" aria-expanded="true" aria-controls="faq-answer-0"><span>01.</span><strong>How does OHR integrate with our current systems?</strong><i><svg width="14" height="14" viewBox="0 0 14 14" fill="none" class="arrow" aria-hidden="true"><path d="M3 11L11 3M11 3H4.5M11 3V9.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></i></button><p id="faq-answer-0">We begin with a workflow audit, then connect the systems worth keeping through APIs, cloud automation, and reporting layers.</p></article>
+          <article><button type="button" aria-expanded="false" aria-controls="faq-answer-1"><span>02.</span><strong>Do we need specialized hardware?</strong><i><svg width="14" height="14" viewBox="0 0 14 14" fill="none" class="arrow" aria-hidden="true"><path d="M3 11L11 3M11 3H4.5M11 3V9.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></i></button><p id="faq-answer-1">Most projects run through browser, mobile, and managed cloud infrastructure. If hardware is needed, we make that explicit before build starts.</p></article>
+          <article><button type="button" aria-expanded="false" aria-controls="faq-answer-2"><span>03.</span><strong>How quickly can we see results?</strong><i><svg width="14" height="14" viewBox="0 0 14 14" fill="none" class="arrow" aria-hidden="true"><path d="M3 11L11 3M11 3H4.5M11 3V9.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></i></button><p id="faq-answer-2">Focused automations can go live in weeks. Larger SaaS builds are phased so your team gets usable value early.</p></article>
+          <article><button type="button" aria-expanded="false" aria-controls="faq-answer-3"><span>04.</span><strong>Can OHR tailor solutions for our operations?</strong><i><svg width="14" height="14" viewBox="0 0 14 14" fill="none" class="arrow" aria-hidden="true"><path d="M3 11L11 3M11 3H4.5M11 3V9.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></i></button><p id="faq-answer-3">Yes. OHR builds around your business process, compliance needs, users, and existing tools.</p></article>
+          <article><button type="button" aria-expanded="false" aria-controls="faq-answer-4"><span>05.</span><strong>We are seeking guidance regarding IT solution consulting services. What initial steps should we undertake?</strong><i><svg width="14" height="14" viewBox="0 0 14 14" fill="none" class="arrow" aria-hidden="true"><path d="M3 11L11 3M11 3H4.5M11 3V9.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></i></button><p id="faq-answer-4">IChannel Technologies, an OHR Systems IT consulting firm, specializes in providing expert consulting services customized to meet specific demands. For additional information, please visit <a href="https://ichanneltech.com" target="_blank" rel="noopener">ichanneltech.com</a> or contact us via email at <a href="mailto:hello@ichanneltech.com">hello@ichanneltech.com</a>.</p></article>
+        </div>
+      </div>
+    </section>
+
+    <section id="contact" class="section contact-section">
+      <div class="shell contact-grid">
+        <div class="reveal contact-copy"><div class="section-label">/ Contact us /</div><h2>Connect with us.</h2><p>For inquiry, support, or collaboration, reach OHR Systems in Ibadan or send a project note. We work with teams that want reliable SaaS, business automation, and cloud services.</p><div class="contact-person"><div class="avatar">OH</div><div><strong>OHR Systems</strong><a href="mailto:hello@ohrsystems.ng">hello@ohrsystems.ng</a></div></div><address>Queen Elizabeth Road, Mokola, Ibadan, Oyo State, Nigeria<br /><a href="https://wa.me/2349167717174" target="_blank" rel="noopener">+2349167717174</a></address></div>
+        <div class="reveal">
+          <form class="contact-form" novalidate>
+            <!-- Web3Forms access key. It is public by design: it only lets people send messages to the OHR inbox. -->
+            <input type="hidden" name="access_key" value="cf8ae417-c63e-4ea2-bb7d-cc915aad0de6" />
+            <input type="hidden" name="from_name" value="OHR Systems website" />
+            <input type="hidden" name="subject" value="New project inquiry from ohrsystems.ng" />
+            <!-- Spam traps: bots typically fill every field. Real users never see or reach these. -->
+            <div class="spam-trap" aria-hidden="true" inert>
+              <input type="checkbox" name="botcheck" tabindex="-1" autocomplete="off" />
+              <input type="text" name="website" tabindex="-1" autocomplete="off" />
+              <input type="email" name="email_confirm" tabindex="-1" autocomplete="off" />
+            </div>
+            <label class="field" for="field-name"><span class="visually-hidden">Full name</span><input id="field-name" name="name" required type="text" placeholder="Full name" autocomplete="name" /><span class="field-error" aria-live="polite"></span></label>
+            <label class="field" for="field-email"><span class="visually-hidden">Email address</span><input id="field-email" name="email" required type="email" placeholder="Email address" autocomplete="email" /><span class="field-error" aria-live="polite"></span></label>
+            <label class="field" for="field-phone"><span class="visually-hidden">Phone number</span><input id="field-phone" name="phone" type="tel" placeholder="Phone number" autocomplete="tel" /><span class="field-error" aria-live="polite"></span></label>
+            <label class="field" for="field-company"><span class="visually-hidden">Company name</span><input id="field-company" name="company" type="text" placeholder="Company name" autocomplete="organization" /><span class="field-error" aria-live="polite"></span></label>
+            <label class="field" for="field-company_size"><span class="visually-hidden">Company size</span><select id="field-company_size" name="company_size" required><option value="" disabled selected>Company size</option><option>1-10 employees</option><option>11-50 employees</option><option>51-200 employees</option><option>201+ employees</option></select><span class="field-error" aria-live="polite"></span></label>
+            <label class="field" for="field-message"><span class="visually-hidden">What would you like to improve?</span><textarea id="field-message" name="message" rows="3" placeholder="What would you like to improve?"></textarea><span class="field-error" aria-live="polite"></span></label>
+            <div class="form-status" role="alert" aria-live="assertive"></div>
+            <button type="submit" class="btn btn-dark">Submit <svg width="14" height="14" viewBox="0 0 14 14" fill="none" class="arrow" aria-hidden="true"><path d="M3 11L11 3M11 3H4.5M11 3V9.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+          </form>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="shell footer-grid">
+      <div><a href="#home" class="footer-brand" aria-label="OHR Systems"><img src="assets/logo-dark.svg" alt="OHR Systems" width="80" height="40" loading="lazy" /></a><p>Software, SaaS, cloud services, and business automation for modern operations.</p><div class="footer-social"><a href="https://www.facebook.com/ohrsystems">Facebook</a><a href="https://x.com/ohrsystems">X (Twitter)</a><a href="https://www.linkedin.com/company/ohrsystems">LinkedIn</a></div></div>
+      <div class="footer-contact"><a href="mailto:hello@ohrsystems.ng">hello@ohrsystems.ng</a><div class="footer-links"><nav><h4>Main pages</h4><a href="#home">Home</a><a href="#about">About</a><a href="#services">Services</a><a href="#benefits">Benefits</a><a href="privacy.html">Privacy policy</a></nav><nav><h4>Services</h4><a href="#services">SaaS applications</a><a href="#services">Business automation</a><a href="#services">Cloud solutions</a><a href="#contact">Consulting</a></nav><nav><h4>Contact</h4><a href="https://wa.me/2349167717174" target="_blank" rel="noopener">+2349167717174</a><a href="#contact">Contact Us</a></nav></div></div>
+    </div>
+    <div class="shell footer-bottom"><span>Copyright © <span data-year>2026</span> OHR Systems</span><a href="privacy.html">Privacy policy</a><span>Empowering business / Cultivating trust</span></div>
+  </footer>
+
+  <div class="scroll-progress" aria-hidden="true"><span></span></div>
+
+  <a class="wa-float" href="https://wa.me/2349167717174" target="_blank" rel="noopener" aria-label="Chat with OHR Systems on WhatsApp">
+    <svg viewBox="0 0 32 32" width="28" height="28" aria-hidden="true"><path fill="currentColor" d="M16 3C9.4 3 4 8.4 4 15c0 2.3.7 4.5 1.9 6.4L4 29l7.8-1.9c1.8 1 3.9 1.5 6.2 1.5h.1c6.6 0 12-5.4 12-12S22.6 3 16 3Zm6.9 16.6c-.3.8-1.6 1.5-2.3 1.6-.6.1-1.4.1-2.3-.1-.5-.2-1.2-.4-2.1-.8-3.7-1.6-6.1-5.3-6.3-5.6-.2-.3-1.5-2-1.5-3.7 0-1.8.9-2.7 1.3-3 .3-.4.7-.5 1-.5h.7c.2 0 .5-.1.8.6.3.7 1 2.5 1.1 2.6.1.2.1.4 0 .6-.1.2-.2.4-.3.5-.2.2-.3.4-.5.6-.2.2-.3.4-.2.7.2.3.8 1.4 1.8 2.3 1.3 1.1 2.4 1.5 2.7 1.6.3.1.5.1.7-.1.2-.2.8-1 1.1-1.3.3-.3.5-.3.8-.2.3.1 2 1 2.4 1.1.4.2.6.3.7.5.1.1.1.7-.2 1.6Z"/></svg>
+  </a>
 
   <script src="src/site.js" defer></script>
 </body>
