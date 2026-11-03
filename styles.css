@@ -164,6 +164,58 @@ p {
   border-color: var(--bg);
   color: var(--ink);
 }
+.nav-actions { display: flex; align-items: center; gap: 10px; }
+.nav-toggle {
+  display: none;
+  position: relative;
+  width: 42px;
+  height: 42px;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  background: transparent;
+  color: inherit;
+}
+.nav:not(.scrolled):not(.menu-open) .nav-toggle { border-color: rgba(255,255,255,.34); }
+.nav-toggle span {
+  position: absolute;
+  left: 12px;
+  right: 12px;
+  height: 1.5px;
+  background: currentColor;
+  transition: transform .2s ease, top .2s ease;
+}
+.nav-toggle span:first-child { top: 16px; }
+.nav-toggle span:last-child { top: 24px; }
+.nav-toggle[aria-expanded="true"] span:first-child { top: 20px; transform: rotate(45deg); }
+.nav-toggle[aria-expanded="true"] span:last-child { top: 20px; transform: rotate(-45deg); }
+.mobile-menu {
+  border-top: 1px solid var(--line);
+  max-height: calc(100vh - 72px);
+  overflow-y: auto;
+}
+.mobile-menu .shell { display: grid; padding: 6px 0 18px; }
+.mobile-menu a {
+  padding: 16px 0;
+  border-bottom: 1px solid var(--line);
+  font-size: 22px;
+  font-weight: 650;
+  letter-spacing: -0.02em;
+  opacity: .68;
+}
+.mobile-menu a:last-child { border-bottom: 0; }
+.mobile-menu a.active, .mobile-menu a:hover { opacity: 1; }
+.nav.menu-open {
+  background: var(--bg);
+  border-bottom-color: var(--line);
+  color: var(--ink);
+}
+.nav.menu-open .brand .logo-light { display: none; }
+.nav.menu-open .brand .logo-dark { display: block; }
+.nav.menu-open .btn-dark {
+  background: var(--ink);
+  border-color: var(--ink);
+  color: var(--bg);
+}
 
 .hero { padding: 0 0 70px; }
 .hero-shell {
@@ -348,12 +400,12 @@ p {
 .service-lines {
   display: grid;
   border-top: 1px solid var(--line);
+  list-style: none;
+  margin: 0;
+  padding: 0;
 }
-.service-lines button {
-  text-align: left;
-  border: 0;
+.service-lines li {
   border-bottom: 1px solid var(--line);
-  background: transparent;
   padding: 15px 0;
   color: var(--ink);
   font-size: 14px;
@@ -430,6 +482,122 @@ p {
 }
 .benefit-art.image-placeholder img {
   aspect-ratio: 900 / 560;
+}
+
+/* Animated benefit graphics (inline SVG). Each one waits until it scrolls
+   into view (site.js adds .playing), plays an intro, then keeps a few gentle
+   loops going. Loops pause again while the graphic is off screen.
+   --d sets when each piece starts. */
+.benefit-art.benefit-motion {
+  position: relative;
+  display: block;
+  padding: 0;
+  background: linear-gradient(140deg, #f7f4ef 0%, #ece6dc 100%);
+}
+.benefit-motion svg {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  font-family: Inter, "Helvetica Neue", Arial, sans-serif;
+}
+.js .benefit-grid .benefit-motion * { animation-play-state: paused; }
+.js .benefit-grid .benefit-motion.playing * { animation-play-state: running; }
+
+/* Intro pieces */
+.bm-fade { animation: bm-fade .6s ease var(--d, 0s) both; }
+.bm-fade.bm-flow { animation: bm-fade .6s ease var(--d, 0s) both, bm-flow 1.6s linear infinite; }
+.bm-pop {
+  transform-box: fill-box;
+  transform-origin: center;
+  animation: bm-pop .55s cubic-bezier(.2,.8,.2,1) var(--d, 0s) both;
+}
+.bm-grow {
+  transform-box: fill-box;
+  transform-origin: 50% 100%;
+  animation: bm-grow .7s cubic-bezier(.2,.8,.2,1) var(--d, 0s) both;
+}
+.bm-draw {
+  stroke-dasharray: 1;
+  animation: bm-draw 1.1s cubic-bezier(.4,0,.2,1) var(--d, 0s) both;
+}
+.bm-drop { animation: bm-drop .8s cubic-bezier(.2,.9,.25,1.1) var(--d, 0s) both; }
+.bm-rise-in { animation: bm-rise-in .7s cubic-bezier(.2,.8,.2,1) var(--d, 0s) both; }
+.bm-slide-r { animation: bm-slide-r .55s cubic-bezier(.2,.8,.2,1) var(--d, 0s) both; }
+.bm-ring {
+  transform-box: fill-box;
+  transform-origin: center;
+  transform: rotate(-90deg);
+  animation: bm-ring 1.2s cubic-bezier(.4,0,.2,1) var(--d, 0s) both;
+}
+
+/* Loops */
+.bm-float { animation: bm-float 5s ease-in-out 1.6s infinite; }
+.bm-breathe {
+  transform-box: fill-box;
+  transform-origin: center;
+  animation: bm-breathe 5s ease-in-out 1.6s infinite;
+}
+.bm-land { animation: bm-land 4.2s cubic-bezier(.3,.7,.3,1) 2s infinite; opacity: 0; }
+.bm-blink { animation: bm-blink 1.6s ease-in-out var(--bd, 0s) infinite; }
+.bm-scroll { animation: bm-scroll 7s linear infinite; }
+.bm-eq {
+  transform-box: fill-box;
+  transform-origin: 50% 100%;
+  animation: bm-eq var(--eq, 1.2s) ease-in-out var(--eqd, 0s) infinite alternate;
+}
+.bm-sonar {
+  transform-box: fill-box;
+  transform-origin: center;
+  opacity: 0;
+  animation: bm-sonar 3.6s ease-out var(--d, 0s) infinite;
+}
+.bm-orbit {
+  transform-box: view-box;
+  transform-origin: 360px 278px;
+  animation: bm-spin 60s linear infinite;
+}
+.bm-counter {
+  transform-box: fill-box;
+  transform-origin: center;
+  animation: bm-spin 60s linear infinite reverse;
+}
+.bm-type { animation: bm-type 1.2s ease-in-out var(--d, 0s) infinite; }
+
+@keyframes bm-fade { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: none; } }
+@keyframes bm-pop {
+  0% { transform: scale(0); opacity: 0; }
+  70% { transform: scale(1.1); opacity: 1; }
+  100% { transform: scale(1); opacity: 1; }
+}
+@keyframes bm-grow { from { transform: scaleY(0); } to { transform: scaleY(1); } }
+@keyframes bm-draw { from { stroke-dashoffset: 1; } to { stroke-dashoffset: 0; } }
+@keyframes bm-drop { from { opacity: 0; transform: translateY(-46px); } to { opacity: 1; transform: none; } }
+@keyframes bm-rise-in { from { opacity: 0; transform: translateY(22px); } to { opacity: 1; transform: none; } }
+@keyframes bm-slide-r { from { opacity: 0; transform: translateX(18px); } to { opacity: 1; transform: none; } }
+@keyframes bm-ring { from { stroke-dasharray: 0 100; } to { stroke-dasharray: var(--v) 100; } }
+@keyframes bm-flow { to { stroke-dashoffset: -28; } }
+@keyframes bm-float { 0%, 100% { transform: none; } 50% { transform: translateY(-9px); } }
+@keyframes bm-breathe { 0%, 100% { transform: none; opacity: 1; } 50% { transform: scale(.9); opacity: .75; } }
+@keyframes bm-land {
+  0% { opacity: 0; transform: translateY(-70px); }
+  22% { opacity: 1; transform: none; }
+  70% { opacity: 1; transform: none; }
+  85%, 100% { opacity: 0; transform: none; }
+}
+@keyframes bm-blink { 0%, 100% { opacity: 1; } 50% { opacity: .25; } }
+@keyframes bm-scroll { to { transform: translateX(-190px); } }
+@keyframes bm-eq { from { transform: scaleY(1); } to { transform: scaleY(.45); } }
+@keyframes bm-sonar {
+  0% { transform: scale(1); opacity: .55; }
+  100% { transform: scale(2.3); opacity: 0; }
+}
+@keyframes bm-spin { to { transform: rotate(360deg); } }
+@keyframes bm-type { 0%, 60%, 100% { transform: none; opacity: .45; } 30% { transform: translateY(-6px); opacity: 1; } }
+
+@media (prefers-reduced-motion: reduce) {
+  .benefit-motion * { animation: none !important; }
+  .benefit-motion .bm-land { opacity: 1; }
 }
 .metric-tile {
   padding: 22px;
@@ -861,13 +1029,13 @@ address {
   text-underline-offset: 3px;
 }
 
-.reveal {
+.js .reveal {
   opacity: 0;
   transform: translateY(32px);
   transition: opacity .8s cubic-bezier(.2,.8,.2,1), transform .8s cubic-bezier(.2,.8,.2,1);
   will-change: opacity, transform;
 }
-.reveal.in {
+.js .reveal.in {
   opacity: 1;
   transform: none;
 }
@@ -905,7 +1073,7 @@ address {
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .reveal { opacity: 1; transform: none; transition: none; }
+  .js .reveal { opacity: 1; transform: none; transition: none; }
   .image-placeholder img { transform: none; transition: none; }
   .scroll-progress { display: none; }
 }
@@ -918,6 +1086,18 @@ address {
     scroll-behavior: auto !important;
     transition-duration: .01ms !important;
   }
+}
+
+@media (min-width: 981px) {
+  .mobile-menu { display: none; }
+}
+
+.spam-trap {
+  position: absolute;
+  left: -9999px;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
 }
 
 .visually-hidden {
@@ -1037,6 +1217,7 @@ textarea:focus-visible {
   :root { --shell: min(100% - 34px, 1320px); }
   .nav-links { display: none; }
   .nav-cta { padding-inline: 14px; }
+  .nav-toggle { display: inline-block; }
   .hero { padding-top: 0; }
   .hero-shell { min-height: 820px; }
   .hero-inner { padding-top: 108px; padding-bottom: 44px; }
